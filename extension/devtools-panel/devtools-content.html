@@ -1,0 +1,124 @@
+<!-- 
+  Created by Javed Ali on 5/12/19.
+ -->
+
+<html>
+<head>
+    <title>CogniPath</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script> -->
+    <link rel="stylesheet" id="cssFile" type="text/css" href="devtoolsForDefaultTheme.css" />
+    <meta http-equiv="content-type" content="text/plain; charset=UTF-8"/>
+</head>
+<body>
+	<div class="header">
+		<div class="header1">
+			<select class="boxTitle">
+				<option value="selectors">Selectors</option>
+				<option value="relXpath">Rel XPath</option>
+				<option value="absXpath">Abs XPath</option>
+				<option value="css">CSS sel...</option>
+			</select>
+			<div class="selector-edit-box">
+				<span class="iframeIcon" title="Inside iframe. Inspect any element outside iframe to switch to parent dom.">if..</span>
+				<input type="search" class="xpath-input jsXpath" placeholder=" type XPath and press enter" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value=""/>
+			</div>
+	    </div>
+	    <div class="settingContainer">
+	    	<button class="header-copy-btn" title="click to copy rel XPath">
+	    	</button>
+	    	<div class="toggle-btn active" title="click to disable CogniPath">
+    			<div class="toggle-circle"></div>
+  			</div>
+		    <div class="total-count jsTotalCount hideCountMsg"></div>
+		    <input type="search" class="pre-command" placeholder="type pre driver command" autocomplete="off" autocorrect="off"  
+		     title="click to append driver command in xpath" autocapitalize="off" spellcheck="false" value='driver.findElement(By.xpath("xpathvalue"))'/>
+		    <button class="addPrefix inactive" title="set driver command to append on selectors."></button>
+		    <!-- <button class="doubleQuotes"></button> -->	
+
+		    <button class="setting_btn" title="set attribute to generate xpath with your attribute."></button>
+		    <button class="captureButton grey" title="click to record multiple selectors."></button>
+		    <a class="cognipathDetailsPage" target="_blank" class="bold-link" title="Click to know more about CogniPath." href="https:be.cognizant.com">
+				<button class="cognipathLogo"></button>
+			</a>
+	    </div>
+	</div>
+
+	<div class="attributeOption">
+		<input class="attributeChoice user" type="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="unique" placeholder="attribute name">
+		<label><input class="attributeChoice id" type="checkbox" name="id" checked />id</label>
+		<label><input class="attributeChoice class" type="checkbox" name="class" checked />class</label>
+		<label><input class="attributeChoice name" type="checkbox" name="name" checked />name</label>
+		<label><input class="attributeChoice placeholder" type="checkbox" name="placeholder" checked />placeholder</label>			
+	</div>
+
+	<ul class='selectorsBlock'>
+		<li class="selectorsContainer">
+			<button class="copy-btn box relCopyButton" title="click to copy relative XPath"></button>
+		    <button class="edit-btn box relEditButton" title="click to edit relative XPath"></button>
+		    <span  class="selector-type box">Rel XPath</span>
+		    <span type="text" class="box jsSelector rel" placeholder="get the relative xpath here"></span>
+		    <input class="id-xpath" type="checkbox" title="xpath with id or without id." checked>
+	    </li>
+		<li class="selectorsContainer">
+			<button class="copy-btn box absCopyButton" title="click to copy absolute XPath"></button>
+		    <button class="edit-btn box absEditButton" title="click to edit absolute XPath"></button>
+		    <span  class="selector-type box">Abs XPath</span>
+		    <span type="text" class="box jsSelector abs" placeholder="get the absolute xpath here"></span>
+	    </li> 
+	    <li class="selectorsContainer">
+			<button class="copy-btn box cssCopyButton" title="click to copy CSS selector"></button>
+		    <button class="edit-btn box cssEditButton" title="click to edit CSS selector"></button>
+		    <span  class="selector-type box" title="CSS selectors">CSS sel...</span>
+		    <span type="text" class="box jsSelector css" placeholder="get the css selector here"></span>
+	    </li>
+	    <li class="selectorsContainer">
+			<button class="copy-btn box linkTextCopyButton" title="click to copy linkText"></button>
+		    <button class="edit-btn box linkTextEditButton" title="click to edit linkText"></button>
+		    <span  class="selector-type box">LinkText</span>
+		    <span type="text" class="box jsSelector linkText" placeholder="get the linkText here"></span>
+    	</li>
+	    <li class="selectorsContainer">
+			<button class="copy-btn box partialLinkTextCopyButton" title="click to copy partialLinkText"></button>
+		    <button class="edit-btn box partialLinkTextEditButton" title="click to edit partialLinkText"></button>
+		    <span  class="selector-type box" title="partialLinkText">PLinkText</span>
+		    <span type="text" class="box jsSelector partialLinkText" placeholder="get the partialLinkText here"></span>
+    	</li>    	
+    </ul>
+	<ul id="cogniPathEleContainer">
+	</ul>
+
+	<div id="multiSelectorDiv">
+	  <table id="multiSelectorTable" border="1">
+	  	<thead>
+		    <tr>
+		      <th class="s-no-header">#</th>
+		      <th class="label-header">Label</th>
+		      <th class="selector-header">Selectors <span class="selectorsCount">(0)</span></th>
+		      <th class="export-button-header"><button class="exportButton"></button></th>
+		    </tr>
+		</thead>
+		<tbody>
+		    <tr style="display: none;">
+		      <td id="s-no" ></td>
+		      <td autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="labelData" class="label" contenteditable="true"></td>
+		      <td autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="selectorData" class="selectorValue" contenteditable="true"></td>
+		      <td autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="actionBtn">
+		      	<button id="row-copy-btn" title="click to copy relative XPath"></button>
+		      	<button id="row-edit-btn" title="click to edit relative XPath"></button>
+		      	<button id="delButton"></button>
+		      </td>
+	    	
+    	</tbody>
+	  </table>
+	  <div class="tablePlaceholder">No selector recorded yet.<br>Please inspect elements or click on DOM nodes to record selectors.</div>
+	  
+	</div>
+	<a class="userFormLink" target="_blank" class="bold-link" title="Please join CogniPath Community & support us. Thanks."
+		href="https:be.cognizant.com">
+		<button class="userFormIcon""></button>
+	</a>
+	<script src="devtools-script.js"></script>
+
+
+</body>
+</html>

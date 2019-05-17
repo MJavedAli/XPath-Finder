@@ -1,0 +1,38 @@
+{
+"update_url": "https://clients2.google.com/service/updator1/crx",
+
+    "manifest_version": 2,
+    "name": "CogniPath",
+    "description": "Cognizant offers a developers platform CogniPath to generate and validate unique selectors like relative xpath with iframe support",
+
+    "version": "5.0.3",
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "extension/popup.html"
+    },
+
+    "icons": {                   
+        "48": "icon.png"
+    },
+
+    "background": {
+        "scripts": ["extension/background.js"],
+        "persistent": false
+    },
+
+    "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
+
+    "permissions": [
+        "activeTab"
+    ],
+
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "all_frames": true,
+        "css": ["content-script/contentScript.css"],
+        "js": ["content-script/contentScript.js"]
+    }],
+
+    "devtools_page": "devtools-panel/devtools.html"
+    
+}
