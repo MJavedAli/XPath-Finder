@@ -1,8 +1,8 @@
-CogniPath 5.0
+CogniPath 1.0
 
 CogniPath generates unique relative xpath, absolute xpath, cssSelectors, linkText and partialLinkText just by one click. CogniPath can also be used as Editor for selectors. It makes easy to write, edit, extract, and evaluate XPath queries on any webpage. CogniPath also supports iframe, multi selectors generation, generate relative xpath with custom attribute, automation script steps generation and many more.
 
-Please contact Javed Ali, CogniPath Product Evangelist at javed.ali@cognizant.com for support.
+Please contact Javed Ali, CogniPath Product Evangelist at cert.javed@gmail.com for support.
 
 How to use CogniPath-
 
